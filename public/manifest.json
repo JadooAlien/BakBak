@@ -1,0 +1,24 @@
+{
+  "name": "BakBak - Text Social",
+  "short_name": "BakBak",
+  "description": "Text-only social media platform for rants, thoughts, and confessions",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#3B82F6",
+  "background_color": "#000000",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxOTIiIGhlaWdodD0iMTkyIiByeD0iNDAiIGZpbGw9IiMwMDAwMDAiLz4KPHN2ZyB4PSI0OCIgeT0iNDgiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzQjgyRjYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHA+PHBhdGggZD0iTTIxIDExLjVhOC4zOCA4LjM4IDAgMCAxLS45IDMuOCA4IDggMCAxIDEtMTYuMiAwQTguMzggOC4zOCAwIDAgMSAzIDExLjVjMC0zIDEuOS01LjcgNS01LjcgMy4yIDAgNS0yLjQgNS0yLjRzMS44IDIuNCA1IDIuNGMzLjEuMSA1IDIuNyA1IDUuN3oiLz4KPHBhdGggZD0iTTEyIDEzdi40Ii8+CjxwYXRoIGQ9Im0xMiAxN3YuNyIvPgo8L3N2Zz4KPC9zdmc+",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiByeD0iMTA0IiBmaWxsPSIjMDAwMDAwIi8+CjxzdmcgeD0iMTI4IiB5PSIxMjgiIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNCODJGNiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgo8cGF0aCBkPSJNMjEgMTEuNWE4LjM4IDguMzggMCAwIDEtLjkgMy44IDggOCAwIDEgMS0xNi4yIDBBOC4zOCA4LjM4IDAgMCAxIDMgMTEuNWMwLTMgMS45LTUuNyA1LTUuNyAzLjIgMCA1LTIuNCA1LTIuNHMxLjggMi40IDUgMi40YzMuMS4xIDUgMi43IDUgNS43eiIvPgo8cGF0aCBkPSJNMTIgMTN2LjQiLz4KPHA+PHBhdGggZD0ibTEyIDE3di43Ii8+CjwvcGF0aD4KPC9zdmc+Cjwvc3ZnPg==",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["social", "communication"],
+  "lang": "en"
+}
