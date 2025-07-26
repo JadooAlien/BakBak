@@ -26,9 +26,11 @@ export const ProfilePage: React.FC = () => {
         {/* Profile Header */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 mb-6 border border-gray-200 dark:border-gray-700">
           <div className="flex items-center space-x-4 mb-4">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center text-2xl font-bold text-white">
-              {currentUser.displayName.charAt(0)}
-            </div>
+            <img 
+              src={currentUser.avatar} 
+              alt={currentUser.displayName}
+              className="w-16 h-16 rounded-full"
+            />
             <div className="flex-1">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 {currentUser.displayName}
@@ -70,7 +72,7 @@ export const ProfilePage: React.FC = () => {
 
           {/* Echo Score Meter */}
           <div className="mb-4">
-            <EchoMeter score={Math.min(100, currentUser.echoScore / 100)} size="lg" />
+            <EchoMeter score={currentUser.echoScore} size="lg" />
           </div>
 
           {/* Badges */}

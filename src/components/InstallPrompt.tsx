@@ -39,21 +39,21 @@ export const InstallPrompt: React.FC = () => {
   }
 
   return (
-    <div className="fixed top-4 left-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-2xl shadow-lg z-50 max-w-md mx-auto">
+    <div className="fixed top-6 left-4 right-4 bg-blue-500 text-white p-5 rounded-2xl shadow-xl z-50 max-w-md mx-auto">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
             <Download className="w-5 h-5" />
           </div>
           <div>
             <h3 className="font-semibold">Install HuiHui</h3>
-            <p className="text-sm opacity-90">Get the full app experience</p>
+            <p className="text-sm opacity-90">Add to your home screen</p>
           </div>
         </div>
         <div className="flex items-center space-x-2">
           <button
             onClick={handleInstall}
-            className="bg-white text-blue-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors"
+            className="bg-white text-blue-600 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors"
           >
             Install
           </button>

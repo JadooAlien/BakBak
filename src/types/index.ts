@@ -3,11 +3,11 @@ export interface User {
   username: string;
   displayName: string;
   bio: string;
+  avatar: string; // Dicebear avatar URL
   followers: number;
   following: number;
   echoScore: number;
   badges: Badge[];
-  avatar?: string;
 }
 
 export interface Badge {
@@ -21,13 +21,12 @@ export interface Badge {
 export interface Post {
   id: string;
   content: string;
-  author: User | null; // null for anonymous posts
-  isAnonymous: boolean;
+  author: User;
   timestamp: Date;
   likes: number;
   reposts: number;
   comments: number;
-  echoMeter: number; // 0-100 viral score
+  echoMeter: number; // Starting from 1000, increases endlessly
   isLiked?: boolean;
   isReposted?: boolean;
   parentId?: string; // for threaded comments

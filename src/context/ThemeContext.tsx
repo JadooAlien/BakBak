@@ -20,7 +20,7 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('bakbak-theme');
-    return (saved as Theme) || 'dark';
+    return (saved as Theme) || 'dark'; // Default to ultra dark theme
   });
 
   useEffect(() => {

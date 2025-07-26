@@ -29,6 +29,7 @@ const mockUser: User = {
   username: 'echohunter',
   displayName: 'Echo Hunter',
   bio: 'Chasing viral posts and digital echoes 🌊',
+  avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=echohunter',
   followers: 1250,
   following: 847,
   echoScore: 8520,
@@ -43,24 +44,32 @@ const mockPosts: Post[] = [
     id: '1',
     content: 'Just realized that social media is basically just us all shouting into the void and hoping someone shouts back. But hey, at least the void has good wifi.',
     author: mockUser,
-    isAnonymous: false,
     timestamp: new Date(Date.now() - 3600000),
     likes: 47,
     reposts: 12,
     comments: 8,
-    echoMeter: 73,
+    echoMeter: 1247,
     isLiked: true
   },
   {
     id: '2',
     content: 'Sometimes I write long texts just to delete them because I realize nobody really cares about my random 3am thoughts. But this time I\'m hitting send. Hello void.',
-    author: null,
-    isAnonymous: true,
+    author: {
+      id: '2',
+      username: 'nightthinker',
+      displayName: 'Night Thinker',
+      bio: '3am thoughts specialist',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=nightthinker',
+      followers: 892,
+      following: 345,
+      echoScore: 6780,
+      badges: []
+    },
     timestamp: new Date(Date.now() - 7200000),
     likes: 156,
     reposts: 34,
     comments: 23,
-    echoMeter: 89
+    echoMeter: 2156
   },
   {
     id: '3',
@@ -70,17 +79,17 @@ const mockPosts: Post[] = [
       username: 'threadmaster',
       displayName: 'Thread Master',
       bio: 'Professional comment thread starter',
+      avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=threadmaster',
       followers: 892,
       following: 345,
       echoScore: 6780,
       badges: []
     },
-    isAnonymous: false,
     timestamp: new Date(Date.now() - 10800000),
     likes: 23,
     reposts: 5,
     comments: 45,
-    echoMeter: 34
+    echoMeter: 1034
   }
 ];
 

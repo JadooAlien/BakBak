@@ -3,7 +3,11 @@ import { Search, TrendingUp, Clock, Heart } from 'lucide-react';
 import { PostCard } from '../components/PostCard';
 import { useApp } from '../context/AppContext';
 
-export const ExplorePage: React.FC = () => {
+interface ExplorePageProps {
+  onPostClick: (postId: string) => void;
+}
+
+export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
   const { posts } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'trending' | 'recent' | 'popular'>('trending');
@@ -26,10 +30,10 @@ export const ExplorePage: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black pb-20 pt-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-black pb-20 pt-6">
       <div className="max-w-md mx-auto px-4">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Explore
           </h1>
           
@@ -41,7 +45,7 @@ export const ExplorePage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search posts..."
-              className="w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+              className="w-full pl-10 pr-4 py-4 bg-white dark:bg-gray-900 border-0 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white shadow-sm"
             />
           </div>
 
@@ -84,9 +88,13 @@ export const ExplorePage: React.FC = () => {
         </div>
 
         {/* Posts */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {filteredPosts.map((post) => (
-            <PostCard key={post.id} post={post} />
+            <PostCard 
+              key={post.id} 
+              post={post} 
+              onClick={() => onPostClick(post.id)}
+            />
           ))}
         </div>
 

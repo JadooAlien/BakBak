@@ -30,7 +30,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FAFAFA;
+  background-color: #F9FAFB;
   overscroll-behavior: none;
 }
 
@@ -72,24 +72,6 @@ body {
 }
 
 /* Anonymous post pattern */
-.anonymous-pattern {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-}
-
-/* Glow effects for high echo scores */
-.echo-glow-green {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-}
-
-.echo-glow-blue {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
-}
-
-.echo-glow-red {
-  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-}
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
@@ -118,7 +100,7 @@ button:focus-visible,
 input:focus-visible, 
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid #3B82F6;
   outline-offset: 2px;
 }
 
@@ -135,7 +117,7 @@ textarea:focus-visible,
 /* Floating action button shadow */
 .fab-shadow {
   box-shadow: 
-    0 4px 14px 0 rgba(59, 130, 246, 0.39),
+    0 4px 20px 0 rgba(59, 130, 246, 0.3),
     0 0 0 1px rgba(59, 130, 246, 0.1);
 }
 
@@ -144,16 +126,21 @@ html.dark {
   color-scheme: dark;
 }
 
-/* EchoMeter animations */
-@keyframes echoGlow {
-  0%, 100% { 
-    box-shadow: 0 0 5px currentColor; 
-  }
-  50% { 
-    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; 
-  }
+/* Ultra minimal design improvements */
+.minimal-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.echo-meter-glow {
-  animation: echoGlow 2s ease-in-out infinite;
+.dark .minimal-shadow {
+  box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
