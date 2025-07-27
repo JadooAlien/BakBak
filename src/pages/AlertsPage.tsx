@@ -14,6 +14,7 @@ export const AlertsPage: React.FC = () => {
         username: 'threadmaster',
         displayName: 'Thread Master',
         bio: '',
+        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=threadmaster',
         followers: 0,
         following: 0,
         echoScore: 0,
@@ -30,6 +31,7 @@ export const AlertsPage: React.FC = () => {
         username: 'echolover',
         displayName: 'Echo Lover',
         bio: '',
+        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=echolover',
         followers: 0,
         following: 0,
         echoScore: 0,
@@ -46,6 +48,7 @@ export const AlertsPage: React.FC = () => {
         username: 'viralseeker',
         displayName: 'Viral Seeker',
         bio: '',
+        avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=viralseeker',
         followers: 0,
         following: 0,
         echoScore: 0,
@@ -59,15 +62,15 @@ export const AlertsPage: React.FC = () => {
   const getNotificationIcon = (type: string) => {
     switch (type) {
       case 'like':
-        return <Heart className="w-5 h-5 text-red-500" />;
+        return <Heart className="w-4 h-4" />;
       case 'comment':
-        return <MessageCircle className="w-5 h-5 text-blue-500" />;
+        return <MessageCircle className="w-4 h-4" />;
       case 'repost':
-        return <Repeat2 className="w-5 h-5 text-green-500" />;
+        return <Repeat2 className="w-4 h-4" />;
       case 'follow':
-        return <UserPlus className="w-5 h-5 text-purple-500" />;
+        return <UserPlus className="w-4 h-4" />;
       default:
-        return <Bell className="w-5 h-5 text-gray-500" />;
+        return <Bell className="w-4 h-4" />;
     }
   };
 
@@ -99,51 +102,39 @@ export const AlertsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black pb-20 pt-4">
-      <div className="max-w-md mx-auto px-4">
+    <div className="min-h-screen pb-20 pt-6 page-transition">
+      <div className="container">
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-            Notifications
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400">
-            Stay updated with your echo activity
-          </p>
+          <h1 className="heading-1 mb-2">Notifications</h1>
+          <p className="caption">Stay updated with your echo activity</p>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-3">
           {mockNotifications.map((notification) => (
             <div
               key={notification.id}
-              className={`p-4 rounded-2xl border transition-all ${
-                notification.read
-                  ? 'bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700'
-                  : 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-700'
+              className={`card cursor-pointer ${
+                !notification.read ? 'border-primary' : ''
               }`}
               onClick={() => markNotificationRead(notification.id)}
             >
               <div className="flex items-start space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-white font-bold text-sm">
-                    {notification.user.displayName.charAt(0)}
-                  </span>
-                </div>
+                <img 
+                  src={notification.user.avatar} 
+                  alt={notification.user.displayName}
+                  className="w-10 h-10 rounded-full flex-shrink-0"
+                />
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-1">
                     <div className="flex items-center space-x-2">
                       {getNotificationIcon(notification.type)}
-                      <p className="text-sm font-medium text-gray-900 dark:text-white">
-                        {notification.user.displayName}
-                      </p>
+                      <p className="heading-3">{notification.user.displayName}</p>
                     </div>
-                    <span className="text-xs text-gray-500">
-                      {formatTime(notification.timestamp)}
-                    </span>
+                    <span className="small-text">{formatTime(notification.timestamp)}</span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                    {getNotificationText(notification)}
-                  </p>
+                  <p className="caption">{getNotificationText(notification)}</p>
                   {!notification.read && (
-                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2" />
+                    <div className="w-2 h-2 bg-white rounded-full mt-2" />
                   )}
                 </div>
               </div>
@@ -153,15 +144,11 @@ export const AlertsPage: React.FC = () => {
 
         {mockNotifications.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Bell className="w-6 h-6 text-gray-400" />
+            <div className="w-16 h-16 surface rounded-full flex items-center justify-center mx-auto mb-4">
+              <Bell className="w-6 h-6 text-muted" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              No notifications yet
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              When people interact with your posts, you'll see it here
-            </p>
+            <h3 className="heading-2 mb-2">No notifications yet</h3>
+            <p className="caption">When people interact with your posts, you'll see it here</p>
           </div>
         )}
       </div>

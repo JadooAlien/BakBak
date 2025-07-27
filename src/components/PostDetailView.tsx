@@ -79,21 +79,21 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
   ];
 
   return (
-    <div className="fixed inset-0 bg-gray-50 dark:bg-black z-50 overflow-y-auto">
+    <div className="fixed inset-0 z-50 overflow-y-auto page-transition">
       {/* Header */}
-      <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-4 py-4 flex items-center space-x-4 z-10">
+      <div className="sticky top-0 surface border-b border-custom px-4 py-4 flex items-center space-x-4 z-10">
         <button
           onClick={onClose}
-          className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+          className="btn-ghost p-2 min-h-8 min-w-8"
         >
-          <ArrowLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+          <ArrowLeft className="w-4 h-4" />
         </button>
-        <h1 className="text-lg font-semibold text-gray-900 dark:text-white">Post</h1>
+        <h1 className="heading-2">Post</h1>
       </div>
 
-      <div className="max-w-md mx-auto">
+      <div className="container">
         {/* Main Post */}
-        <div className="bg-white dark:bg-gray-900 p-6 border-b border-gray-100 dark:border-gray-800">
+        <div className="surface p-6 border-b border-custom">
           {/* Author */}
           <div className="flex items-center space-x-3 mb-4">
             <img 
@@ -102,27 +102,21 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
               className="w-12 h-12 rounded-full"
             />
             <div>
-              <p className="font-semibold text-gray-900 dark:text-white">
-                {post.author.displayName}
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                @{post.author.username}
-              </p>
+              <p className="heading-3">{post.author.displayName}</p>
+              <p className="small-text">@{post.author.username}</p>
             </div>
           </div>
 
           {/* Content */}
           <div className="mb-6">
-            <p className="text-gray-900 dark:text-white leading-relaxed text-lg whitespace-pre-wrap">
+            <p className="body-text text-lg leading-relaxed whitespace-pre-wrap">
               {post.content}
             </p>
           </div>
 
           {/* Timestamp */}
           <div className="mb-4">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
-              {post.timestamp.toLocaleString()}
-            </p>
+            <p className="small-text">{post.timestamp.toLocaleString()}</p>
           </div>
 
           {/* EchoMeter */}
@@ -131,18 +125,18 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
           </div>
 
           {/* Stats */}
-          <div className="flex items-center space-x-6 py-4 border-t border-b border-gray-100 dark:border-gray-800">
+          <div className="flex items-center space-x-6 py-4 border-t border-b border-custom">
             <div className="text-center">
-              <p className="text-xl font-bold text-gray-900 dark:text-white">{post.likes}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Likes</p>
+              <p className="heading-2">{post.likes}</p>
+              <p className="small-text">Likes</p>
             </div>
             <div className="text-center">
-              <p className="text-xl font-bold text-gray-900 dark:text-white">{post.reposts}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Reposts</p>
+              <p className="heading-2">{post.reposts}</p>
+              <p className="small-text">Reposts</p>
             </div>
             <div className="text-center">
-              <p className="text-xl font-bold text-gray-900 dark:text-white">{post.comments}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Comments</p>
+              <p className="heading-2">{post.comments}</p>
+              <p className="small-text">Comments</p>
             </div>
           </div>
 
@@ -150,38 +144,30 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
           <div className="flex items-center justify-around py-4">
             <button 
               onClick={handleLike}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all ${
-                post.isLiked 
-                  ? 'text-red-500 bg-red-50 dark:bg-red-900/10' 
-                  : 'text-gray-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10'
-              }`}
+              className={`btn-ghost p-3 ${post.isLiked ? 'text-primary' : ''}`}
             >
-              <Heart className={`w-6 h-6 ${post.isLiked ? 'fill-current' : ''}`} />
+              <Heart className={`w-5 h-5 ${post.isLiked ? 'fill-current' : ''}`} />
             </button>
 
-            <button className="flex items-center space-x-2 px-4 py-2 rounded-full text-gray-500 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-all">
-              <MessageCircle className="w-6 h-6" />
+            <button className="btn-ghost p-3">
+              <MessageCircle className="w-5 h-5" />
             </button>
 
             <button 
               onClick={handleRepost}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all ${
-                post.isReposted 
-                  ? 'text-green-500 bg-green-50 dark:bg-green-900/10' 
-                  : 'text-gray-500 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-900/10'
-              }`}
+              className={`btn-ghost p-3 ${post.isReposted ? 'text-primary' : ''}`}
             >
-              <Repeat2 className="w-6 h-6" />
+              <Repeat2 className="w-5 h-5" />
             </button>
 
-            <button className="flex items-center space-x-2 px-4 py-2 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
-              <Share className="w-6 h-6" />
+            <button className="btn-ghost p-3">
+              <Share className="w-5 h-5" />
             </button>
           </div>
         </div>
 
         {/* Comment Input */}
-        <div className="bg-white dark:bg-gray-900 p-4 border-b border-gray-100 dark:border-gray-800">
+        <div className="surface p-4 border-b border-custom">
           <div className="flex space-x-3">
             <img 
               src={currentUser?.avatar} 
@@ -193,25 +179,24 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
                 value={commentText}
                 onChange={(e) => setCommentText(e.target.value)}
                 placeholder="Add a comment..."
-                className="flex-1 p-3 bg-gray-50 dark:bg-gray-800 border-0 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
-                rows={3}
+                className="input-field flex-1 h-20 resize-none"
                 maxLength={1000}
               />
               <button 
                 onClick={handleComment}
                 disabled={!commentText.trim()}
-                className="self-end p-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="btn-primary p-3 self-end"
               >
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
 
         {/* Comments */}
-        <div className="bg-white dark:bg-gray-900">
+        <div className="surface">
           {mockComments.map((comment) => (
-            <div key={comment.id} className="p-4 border-b border-gray-100 dark:border-gray-800">
+            <div key={comment.id} className="p-4 border-b border-custom">
               <div className="flex space-x-3">
                 <img 
                   src={comment.author.avatar} 
@@ -220,27 +205,19 @@ export const PostDetailView: React.FC<PostDetailViewProps> = ({ post, onClose })
                 />
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-1">
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      {comment.author.displayName}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      @{comment.author.username}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      · {formatTime(comment.timestamp)}
-                    </p>
+                    <p className="heading-3">{comment.author.displayName}</p>
+                    <p className="small-text">@{comment.author.username}</p>
+                    <p className="small-text">· {formatTime(comment.timestamp)}</p>
                   </div>
-                  <p className="text-gray-900 dark:text-white leading-relaxed mb-2">
-                    {comment.content}
-                  </p>
+                  <p className="body-text leading-relaxed mb-2">{comment.content}</p>
                   <div className="flex items-center space-x-4">
-                    <button className="flex items-center space-x-1 text-gray-500 hover:text-red-500 transition-colors">
-                      <Heart className="w-4 h-4" />
-                      <span className="text-sm">{comment.likes}</span>
+                    <button className="flex items-center space-x-1 btn-ghost px-2 py-1">
+                      <Heart className="w-3 h-3" />
+                      <span className="small-text">{comment.likes}</span>
                     </button>
-                    <button className="flex items-center space-x-1 text-gray-500 hover:text-blue-500 transition-colors">
-                      <MessageCircle className="w-4 h-4" />
-                      <span className="text-sm">Reply</span>
+                    <button className="flex items-center space-x-1 btn-ghost px-2 py-1">
+                      <MessageCircle className="w-3 h-3" />
+                      <span className="small-text">Reply</span>
                     </button>
                   </div>
                 </div>

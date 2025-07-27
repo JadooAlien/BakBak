@@ -30,22 +30,20 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black pb-20 pt-6">
-      <div className="max-w-md mx-auto px-4">
+    <div className="min-h-screen pb-20 pt-6 page-transition">
+      <div className="container">
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Explore
-          </h1>
+          <h1 className="heading-1 mb-4">Explore</h1>
           
           {/* Search Bar */}
           <div className="relative mb-4">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted w-4 h-4" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search posts..."
-              className="w-full pl-10 pr-4 py-4 bg-white dark:bg-gray-900 border-0 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white shadow-sm"
+              className="input-field pl-10"
             />
           </div>
 
@@ -53,10 +51,10 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
           <div className="flex space-x-2 mb-4">
             <button
               onClick={() => setSortBy('trending')}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm transition-all ${
                 sortBy === 'trending'
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  ? 'btn-primary'
+                  : 'btn-ghost'
               }`}
             >
               <TrendingUp className="w-4 h-4" />
@@ -64,10 +62,10 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
             </button>
             <button
               onClick={() => setSortBy('recent')}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm transition-all ${
                 sortBy === 'recent'
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  ? 'btn-primary'
+                  : 'btn-ghost'
               }`}
             >
               <Clock className="w-4 h-4" />
@@ -75,10 +73,10 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
             </button>
             <button
               onClick={() => setSortBy('popular')}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm transition-all ${
                 sortBy === 'popular'
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  ? 'btn-primary'
+                  : 'btn-ghost'
               }`}
             >
               <Heart className="w-4 h-4" />
@@ -88,7 +86,7 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
         </div>
 
         {/* Posts */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {filteredPosts.map((post) => (
             <PostCard 
               key={post.id} 
@@ -100,15 +98,11 @@ export const ExplorePage: React.FC<ExplorePageProps> = ({ onPostClick }) => {
 
         {filteredPosts.length === 0 && (
           <div className="text-center py-12">
-            <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Search className="w-6 h-6 text-gray-400" />
+            <div className="w-16 h-16 surface rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="w-6 h-6 text-muted" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-              No posts found
-            </h3>
-            <p className="text-gray-600 dark:text-gray-400">
-              Try adjusting your search or filters
-            </p>
+            <h3 className="heading-2 mb-2">No posts found</h3>
+            <p className="caption">Try adjusting your search or filters</p>
           </div>
         )}
       </div>

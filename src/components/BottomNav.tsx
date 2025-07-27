@@ -21,8 +21,8 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50">
-      <div className="flex items-center justify-around py-2 max-w-md mx-auto">
+    <div className="fixed bottom-0 left-0 right-0 surface border-t border-custom z-50">
+      <div className="flex items-center justify-around container py-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -31,30 +31,19 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex flex-col items-center justify-center p-3 relative transition-all duration-200 ${
-                isActive 
-                  ? 'text-blue-500' 
-                  : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'
+              className={`nav-item ${isActive ? 'active' : ''} ${
+                tab.id === 'post' ? 'btn-primary rounded-full p-3' : ''
               }`}
             >
               <div className="relative">
-                <Icon 
-                  className={`w-6 h-6 ${isActive ? 'fill-current' : ''} ${
-                    tab.id === 'post' ? 'bg-blue-500 text-white rounded-full p-1 w-8 h-8' : ''
-                  }`} 
-                />
+                <Icon className={`w-5 h-5 ${tab.id === 'post' ? 'w-4 h-4' : ''}`} />
                 {tab.badge && tab.badge > 0 && (
-                  <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {tab.badge > 99 ? '99+' : tab.badge}
+                  <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+                    {tab.badge > 9 ? '9+' : tab.badge}
                   </div>
                 )}
               </div>
-              <span className={`text-xs mt-1 ${isActive ? 'font-semibold' : ''}`}>
-                {tab.label}
-              </span>
-              {isActive && (
-                <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-500 rounded-full" />
-              )}
+              <span className="small-text mt-1">{tab.label}</span>
             </button>
           );
         })}

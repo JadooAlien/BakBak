@@ -31,35 +31,35 @@ export const InstallPrompt: React.FC = () => {
 
   const handleDismiss = () => {
     setShowPrompt(false);
-    localStorage.setItem('bakbak-install-dismissed', 'true');
+    localStorage.setItem('huihui-install-dismissed', 'true');
   };
 
-  if (!showPrompt || localStorage.getItem('bakbak-install-dismissed')) {
+  if (!showPrompt || localStorage.getItem('huihui-install-dismissed')) {
     return null;
   }
 
   return (
-    <div className="fixed top-6 left-4 right-4 bg-blue-500 text-white p-5 rounded-2xl shadow-xl z-50 max-w-md mx-auto">
+    <div className="install-prompt">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
-            <Download className="w-5 h-5" />
+          <div className="w-12 h-12 surface rounded-full flex items-center justify-center">
+            <Download className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <h3 className="font-semibold">Install HuiHui</h3>
-            <p className="text-sm opacity-90">Add to your home screen</p>
+            <h3 className="heading-3">Install HuiHui</h3>
+            <p className="caption">Add to your home screen for the best experience</p>
           </div>
         </div>
         <div className="flex items-center space-x-2">
           <button
             onClick={handleInstall}
-            className="bg-white text-blue-600 px-5 py-2 rounded-full text-sm font-semibold hover:bg-gray-100 transition-colors"
+            className="btn-primary px-4 py-2"
           >
             Install
           </button>
           <button
             onClick={handleDismiss}
-            className="p-2 hover:bg-white/20 rounded-full transition-colors"
+            className="btn-ghost p-2 min-h-8 min-w-8"
           >
             <X className="w-4 h-4" />
           </button>
